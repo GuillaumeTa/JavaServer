@@ -62,7 +62,7 @@ public final class GmailService extends GoogleService {
         // Print the labels in the user's account.
         String user = "me";
 
-        String query = "from:(googleplay-noreply@google.com)";
+        String query = "label:unread";
 
         List<Message> nbMessageTotal = listMessagesMatchingQuery(user, query, userKey);
 
