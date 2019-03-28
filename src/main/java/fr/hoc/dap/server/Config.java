@@ -7,7 +7,7 @@ package fr.hoc.dap.server;
 public class Config {
 
     /**Fichier de permissions acceptées.*/
-    private static final String TOKEN_FOLDER = "tokens";
+    private static final String TOKEN_FOLDER = System.getProperty("user.home") + "/dap/tokens";
 
     /** Fichier de config api.*/
     private static final String CREDENTIAL_FILE_PATH = System.getProperty("user.home") + "/dap/credential_web.json";
