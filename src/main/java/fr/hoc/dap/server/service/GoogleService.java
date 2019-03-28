@@ -1,8 +1,9 @@
 package fr.hoc.dap.server.service;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.Reader;
 import java.security.GeneralSecurityException;
 import java.util.Arrays;
 import java.util.List;
@@ -92,8 +93,9 @@ public class GoogleService {
      */
     public GoogleAuthorizationCodeFlow getFlow() throws GeneralSecurityException, IOException {
         HttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
-        InputStream in = GmailService.class.getResourceAsStream(defaultConf.getCredentialFilePath());
-        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
+        File in = new java.io.File(defaultConf.getCredentialFilePath());
+        Reader targetReader = new FileReader(in);
+        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, targetReader);
         // Build flow and trigger user authorization request.
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(httpTransport, JSON_FACTORY,
                 clientSecrets, scopes)

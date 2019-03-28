@@ -10,7 +10,7 @@ public class Config {
     private static final String TOKEN_FOLDER = "tokens";
 
     /** Fichier de config api.*/
-    private static final String CREDENTIAL_FILE_PATH = "/credentials.json";
+    private static final String CREDENTIAL_FILE_PATH = System.getProperty("user.home") + "/dap/credential_web.json";
 
     /** Nom de l'application.*/
     private static final String APPLICATION_NAME = "HoC DaP";

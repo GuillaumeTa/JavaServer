@@ -21,7 +21,7 @@ public abstract class Application {
         Config config = new Config();
         String appName = "String and Api Google";
         config.setApplicationName(appName);
-        config.setCredentialFilePath("/credential_web.json");
+        //        config.setCredentialFilePath("/credential_web.json");
         return config;
     }
 
