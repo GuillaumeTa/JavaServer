@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Salut ma Gueule</title>
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link th:href="@{css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <h1>Salut !</h1>
+    <p th:text="${maVar}">Monsieur</p>
+    <div>
+    	<ul>
+    		<!-- <li>Chien</li>
+    		<li>Autruche</li>
+    		<li>Crocodile</li> -->
+    		<li th:each="bete : ${bebetes}" th:text="${bete}"></li>
+    	</ul>
+    </div>
+</body>
+</html>
