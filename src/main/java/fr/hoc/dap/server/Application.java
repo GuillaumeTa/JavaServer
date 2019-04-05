@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 
 /**
  * @author house
- *
+ * ajout de com pour tester transfert repo to github
  */
 @SpringBootApplication
 public abstract class Application {
