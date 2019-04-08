@@ -26,13 +26,13 @@
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <tr th:each="user : ${allusers}">
-				      <td th:text="${user.key}"></td>
-				      <td th:text="${user.value.accessToken}"></td>
-				      <td th:text="${user.value.refreshToken}"></td>
-				      <td th:text="${user.value.expirationTimeMilliseconds}"></td>
+				    <tr th:each="entry : ${allusers}">
+				      <td th:text="${entry.key}"></td>
+				      <td th:text="${entry.value.accessToken}"></td>
+				      <td th:text="${entry.value.refreshToken}"></td>
+				      <td th:text="${entry.value.expirationTimeMilliseconds}"></td>
 				      <td>
-				      	<button class="btn btn-link"><i class="far fa-trash-alt"></i></button>
+				      	<a th:href="@{/delete/user(userkey=${entry.key})}" class="btn btn-link"><i class="far fa-trash-alt"></i></a>
 				      </td>
 				    </tr>
 				  </tbody>

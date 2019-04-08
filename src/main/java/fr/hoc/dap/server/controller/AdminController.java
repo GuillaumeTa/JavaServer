@@ -24,7 +24,7 @@ import fr.hoc.dap.server.service.AdminService;
 public class AdminController {
 
     /**
-     * Singleton .
+     * Singleton injection AdminService.
      */
     @Autowired
     private AdminService admins;
@@ -57,9 +57,21 @@ public class AdminController {
 
         model.addAttribute("allusers", usersMap);
 
-        System.out.println(usersMap);
+        //        System.out.println(usersMap);
 
         return "admin";
     }
 
+    /**
+     * @return la vue admin.html
+     * @param userkey key user
+     * @throws GeneralSecurityException that provides type safety for all the security-related
+     * exception classes that extend from it.
+     * @throws IOException If the credentials.json file cannot be found.
+     */
+    @RequestMapping("/delete/user")
+    public String deleteUsr(final String userkey) throws GeneralSecurityException, IOException {
+        DataStore<StoredCredential> deleteUser = admins.deleteUser(userkey);
+        return "redirect:/admin";
+    }
 }
