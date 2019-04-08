@@ -1,3 +1,10 @@
+.tableau {
+	font-size : 0.9rem;
+}
 h1 {
-	color : blue;
+	text-align : center;
+}
+
+.title {
+	background-color : #DCDDDF;
 }
