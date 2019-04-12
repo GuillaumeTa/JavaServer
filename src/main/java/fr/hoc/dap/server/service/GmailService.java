@@ -18,7 +18,8 @@ import com.google.api.services.gmail.model.ListMessagesResponse;
 import com.google.api.services.gmail.model.Message;
 
 /**
- * Classe qui englode des methodes pour Gmail.
+ * @author house
+ *
  */
 @Service
 public final class GmailService extends GoogleService {
@@ -33,9 +34,9 @@ public final class GmailService extends GoogleService {
 
     /**
      * @param userKey user actuel.
-     * @return yolo.
-     * @throws IOException pazreik.
-     * @throws GeneralSecurityException elle est la.
+     * @return service all we need to for connect userKey
+     * @throws IOException If the credentials.json file cannot be found.
+     * @throws GeneralSecurityException if exception exists avoid them.
      */
     public Gmail getService(final String userKey) throws GeneralSecurityException, IOException {
         NetHttpTransport httpTransport;
@@ -77,7 +78,7 @@ public final class GmailService extends GoogleService {
      * @param userKey user actuel
      * @return un tableau contenant tous les messages pour l'id du user.
      * @throws IOException If the credentials.json file cannot be found.
-     * @throws GeneralSecurityException kok.
+     * @throws GeneralSecurityException if exception exists avoid them.
      */
     public List<Message> listMessagesMatchingQuery(final String userId, final String query, final String userKey)
             throws IOException, GeneralSecurityException {

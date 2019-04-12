@@ -17,8 +17,7 @@ public class AdminService extends GoogleService {
 
     /**
     * @return datas données credential
-    * @throws GeneralSecurityException that provides type safety for all the security-related
-    * exception classes that extend from it.
+    * @throws GeneralSecurityException if exception exists avoid them.
     * @throws IOException If the credentials.json file cannot be found.
     */
     public DataStore<StoredCredential> getCredential() throws GeneralSecurityException, IOException {
@@ -29,10 +28,9 @@ public class AdminService extends GoogleService {
     }
 
     /**
-     * @param userkey key user présent.
+     * @param userkey key user actuel.
      * @return datas données credential
-     * @throws GeneralSecurityException that provides type safety for all the security-related
-     * exception classes that extend from it.
+     * @throws GeneralSecurityException if exception exists avoid them.
      * @throws IOException If the credentials.json file cannot be found.
      */
     public DataStore<StoredCredential> deleteUser(final String userkey) throws GeneralSecurityException, IOException {

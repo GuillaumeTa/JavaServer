@@ -18,26 +18,16 @@ import fr.hoc.dap.server.service.CalendarService;
 public class EventController {
 
     /**
-     * Inject la valeure de l'attribut.
+     * Singleton.
      */
     @Autowired
     private CalendarService lastEvent;
 
     /**
-     * @return string of last event.
+     * @return string.
      * @throws IOException If the credentials.json file cannot be found.
      * @throws GeneralSecurityException if exception exists avoid them.
-     */
-    //    @RequestMapping("/event/next")
-    //    public String showEvent() throws IOException, GeneralSecurityException {
-    //        return lastEvent.getEvents();
-    //    }
-
-    /**
-     * @return string of last event.
-     * @throws IOException If the credentials.json file cannot be found.
-     * @throws GeneralSecurityException if exception exists avoid them.
-     * @param nbResult .
+     * @param nbResult contient tous les resultats.
      * @param userKey nom de l'user en cour.
      */
     @RequestMapping("/event/next")

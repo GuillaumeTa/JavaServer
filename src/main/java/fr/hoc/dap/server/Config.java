@@ -15,18 +15,16 @@ public class Config {
     /** Nom de l'application.*/
     private static final String APPLICATION_NAME = "HoC DaP";
 
-    /** tokenFolder.*/
+    /** tokenFolder variable setter.*/
     private String tokenFolder;
 
-    /** credentialFP.*/
+    /** credentialFP variable setter.*/
     private String credentialFilePath;
 
-    /** applicationName.*/
+    /** applicationName variable setter.*/
     private String applicationName;
 
-    /**
-     * Constructeur de la Config.
-     */
+    /** Constructeur.*/
     public Config() {
         tokenFolder = TOKEN_FOLDER;
         credentialFilePath = CREDENTIAL_FILE_PATH;
@@ -34,21 +32,21 @@ public class Config {
     }
 
     /**
-     * @return the TOKEN_FOLDER
+     * @return String
      */
     public String getTokenFolder() {
         return tokenFolder;
     }
 
     /**
-     * @return the CREDENTIAL_FILE_PATH
+     * @return String
      */
     public String getCredentialFilePath() {
         return credentialFilePath;
     }
 
     /**
-     * @return the APPLICATION_NAME
+     * @return String
      */
     public String getApplicationName() {
         return applicationName;

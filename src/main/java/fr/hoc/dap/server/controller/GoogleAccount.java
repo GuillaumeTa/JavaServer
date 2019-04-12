@@ -25,7 +25,7 @@ import com.google.api.client.http.GenericUrl;
 import fr.hoc.dap.server.service.GoogleService;
 
 /**
- * @author house
+ * @author Alucard
  *
  */
 
@@ -46,7 +46,7 @@ public class GoogleAccount extends GoogleService {
      * @param request the HTTP request
      * @param session the HTTP session
      * @return the view to Display (on Error)
-     * @throws GeneralSecurityException .
+     * @throws GeneralSecurityException if exception exists avoid them.
      */
     @RequestMapping("/account/add/{userId}")
     public String addAccount(@PathVariable final String userId, final HttpServletRequest request,
@@ -78,11 +78,11 @@ public class GoogleAccount extends GoogleService {
     /**
      * Handle the Google response.
      * @param request The HTTP Request
-     * @param code    The (encoded) code use by Google (token, expirationDate,...)
+     * @param code The (encoded) code use by Google (token, expirationDate,...)
      * @param session the HTTP Session
      * @return the view to display
      * @throws ServletException When Google account could not be connected to DaP.
-     * @throws GeneralSecurityException .
+     * @throws GeneralSecurityException if exception exists avoid them.
      */
     @RequestMapping("/oAuth2Callback")
     public String oAuthCallback(@RequestParam final String code, final HttpServletRequest request,
@@ -164,8 +164,7 @@ public class GoogleAccount extends GoogleService {
 
     /**
      * Build a current host (and port) absolute URL.
-     * @param req         The current HTTP request to extract schema, host, port
-     *                    informations
+     * @param req The current HTTP request to extract schema, host, port informations
      * @param destination the "path" to the resource
      * @return an absolute URI
      */

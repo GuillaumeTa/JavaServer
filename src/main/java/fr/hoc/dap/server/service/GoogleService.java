@@ -25,17 +25,13 @@ import com.google.api.services.gmail.GmailScopes;
 import fr.hoc.dap.server.Config;
 
 /**
- * Classe qui regroupe les methode des autorisations google.
- */
-/**
  * @author house
  *
  */
 
 public class GoogleService {
 
-    /** Variable config.*/
-
+    /** Singleton.*/
     @Autowired
     private Config defaultConf;
 
@@ -52,44 +48,37 @@ public class GoogleService {
     private static List<String> scopes = Arrays.asList(CalendarScopes.CALENDAR_READONLY, GmailScopes.GMAIL_READONLY);
 
     /**
-     * Le port local pour la reponse au consentement de l'utilisateur.
-     */
-    // private static final int PORT = 8888;
-
-    /**
      * Creates an authorized Credential object.
      * @param userKey variable de users pour plusieurs comptes.
-     * @param httpTransport .
+     * @param httpTransport Thread-safe httpTransport
      * @return An authorized Credential object.
      * @throws IOException If the credentials.json file cannot be found.
-     * @throws GeneralSecurityException .
+     * @throws GeneralSecurityException if exception exists avoid them.
      */
     protected Credential getCredentials(final String userKey, final NetHttpTransport httpTransport)
             throws IOException, GeneralSecurityException {
-        // Load client secrets.
-        //LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(PORT).build();
         GoogleAuthorizationCodeFlow flow = getFlow();
         return flow.loadCredential(userKey);
     }
 
     /**
-     * @param laConf2 youpi.
+     * @param laConf2 default conf.
      */
     public void setLaConf(final Config laConf2) {
         this.defaultConf = laConf2;
     }
 
     /**
-     * @return default config for all children.
+     * @return String
      */
     public Config getLaConf() {
         return defaultConf;
     }
 
     /**
-     * @return null.
-     * @throws IOException .
-     * @throws GeneralSecurityException .
+     * @return flow
+     * @throws IOException If the credentials.json file cannot be found.
+     * @throws GeneralSecurityException if exception exists avoid them.
      */
     public GoogleAuthorizationCodeFlow getFlow() throws GeneralSecurityException, IOException {
         HttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();

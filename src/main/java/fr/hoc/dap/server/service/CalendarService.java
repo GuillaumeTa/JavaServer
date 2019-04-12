@@ -34,7 +34,7 @@ public final class CalendarService extends GoogleService {
     /**
      * @throws IOException If the credentials.json file cannot be found.
      * @throws GeneralSecurityException if exception exists avoid them.
-     * @return liste des event.
+     * @return list of events
      * @param nbResult stocke tous les resultats.
      * @param userKey user actuel.
      */
@@ -49,8 +49,6 @@ public final class CalendarService extends GoogleService {
         DateTime now = new DateTime(System.currentTimeMillis());
         Events events = service.events().list("primary").setMaxResults(nbResult).setTimeMin(now).setOrderBy("startTime")
                 .setSingleEvents(true).execute();
-
-        //CalendarListEntry calendarListEntry = service.calendarList().get("calendarId").execute();
 
         List<Event> items = events.getItems();
 

@@ -24,15 +24,10 @@ import fr.hoc.dap.server.service.AdminService;
 public class AdminController {
 
     /**
-     * Singleton injection AdminService.
+     * Singleton.
      */
     @Autowired
     private AdminService admins;
-    /**
-     * Inject la valeure de l'attribut.
-     */
-    //    @Autowired
-    //    private AdminService admins;
 
     /**
      * @return la vue admin.html
@@ -57,14 +52,12 @@ public class AdminController {
 
         model.addAttribute("allusers", usersMap);
 
-        //        System.out.println(usersMap);
-
         return "admin";
     }
 
     /**
      * @return la vue admin.html
-     * @param userkey key user
+     * @param userkey nom de l'user en cour.
      * @throws GeneralSecurityException that provides type safety for all the security-related
      * exception classes that extend from it.
      * @throws IOException If the credentials.json file cannot be found.

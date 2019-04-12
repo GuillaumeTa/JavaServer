@@ -18,7 +18,7 @@ import fr.hoc.dap.server.service.GmailService;
 public class MailController {
 
     /**
-     * Inject la valeure de l'attribut.
+     * Singleton.
      */
     @Autowired
     private GmailService gmail;
