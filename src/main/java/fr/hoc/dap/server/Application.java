@@ -38,7 +38,7 @@ public abstract class Application {
     public CommandLineRunner commandLineRunner(final ApplicationContext ctx) {
 
         return args -> {
-
+            //TODO tag by Djer |Spring| Attention tu créé une novuelle "Config" en appelant cette méthode, si cette créer par Spring est mdoifié "ailleur" dans le code tu afficheras une informations FAUSSE !
             System.out.println("Application Name : " + conf().getApplicationName());
         };
     }
