@@ -31,6 +31,7 @@ import fr.hoc.dap.server.Config;
 
 public class GoogleService {
 
+  //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse.
     /** Singleton.*/
     @Autowired
     private Config defaultConf;
@@ -61,6 +62,8 @@ public class GoogleService {
         return flow.loadCredential(userKey);
     }
 
+  //TODO tag by Djer |JPOO| Les getter/setteer sont en général à la fin de la classe.
+  //TODO tag by Djer |JavaDoc| Il ne s'agit pas de la "default" conf, mais de la nouvelle conf !
     /**
      * @param laConf2 default conf.
      */

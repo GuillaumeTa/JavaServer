@@ -17,10 +17,12 @@ import fr.hoc.dap.server.service.CalendarService;
 @RestController
 public class EventController {
 
+    //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse.
     /**
      * Singleton.
      */
     @Autowired
+    //TODO tag by Djer |POO| Nom de varaible pas top "calendarSrv" serait mieux
     private CalendarService lastEvent;
 
     /**
