@@ -18,12 +18,14 @@ import fr.hoc.dap.server.service.CalendarService;
 public class EventController {
 
     //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse.
+    //CHANGED
     /**
-     * Singleton.
+     * Injection de dependance.
      */
     @Autowired
     //TODO tag by Djer |POO| Nom de varaible pas top "calendarSrv" serait mieux
-    private CalendarService lastEvent;
+    //CHANGED
+    private CalendarService calendarSrv;
 
     /**
      * @return string.
@@ -35,6 +37,6 @@ public class EventController {
     @RequestMapping("/event/next")
     public String idEvent(@RequestParam(name = "nb", defaultValue = "1") final Integer nbResult,
             @RequestParam() final String userKey) throws IOException, GeneralSecurityException {
-        return lastEvent.getEvents(nbResult, userKey);
+        return calendarSrv.getEvents(nbResult, userKey);
     }
 }

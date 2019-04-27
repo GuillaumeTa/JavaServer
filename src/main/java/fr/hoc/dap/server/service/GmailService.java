@@ -24,14 +24,13 @@ import com.google.api.services.gmail.model.Message;
 @Service
 public final class GmailService extends GoogleService {
 
-    /**constante de log (pour log4j).*/
+    /**log (pour log4j).*/
     private static final Logger LOG = LogManager.getLogger();
 
     //TODO tag by Djer |JavaDoc| NON ! Pas une méthode ! est c'est une "fabrique à JSON" pas vraiment un "JSON"
+    //CHANGED on GoogleService
     //TODO tag by Djer |POO| Pas utile car deja défini dans la classe parente !
-    /**
-     * Methode qui créée une instance Globale du Json et thread-safe (appelable depuis plusieurs thread).
-     */
+    //CHANGED
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 
     /**
@@ -41,8 +40,10 @@ public final class GmailService extends GoogleService {
      * @throws GeneralSecurityException if exception exists avoid them.
      */
     //TODO tag by Djer |POO| "buildService" serait mieux comme nom de méthode
+    //CHANGED
     //TODO tag by Djer |POO| Devrait etre privée
-    public Gmail getService(final String userKey) throws GeneralSecurityException, IOException {
+    //CHANGED
+    private Gmail buildService(final String userKey) throws GeneralSecurityException, IOException {
         NetHttpTransport httpTransport;
         Gmail service = null;
         httpTransport = GoogleNetHttpTransport.newTrustedTransport();
@@ -52,11 +53,6 @@ public final class GmailService extends GoogleService {
         return service;
     }
 
-    //TODO tag by Djer |JavaDoc| Cette Javaoc n'es plus à sa place
-    /**
-     * Global instance of the scopes required by this quickstart.
-     * If modifying these scopes, delete your previously saved tokens/ folder.
-     */
     /**
      * @param userKey user actuel.
      * @throws IOException If the credentials.json file cannot be found.
@@ -64,7 +60,7 @@ public final class GmailService extends GoogleService {
      * @return Variable with table size.
      */
     //TODO tag by Djer |JavaDoc| getNbEmails, ou "retrieveNbEmail" serait mieux
-    public Integer getMails(final String userKey) throws IOException, GeneralSecurityException {
+    public Integer retrieveNbEmails(final String userKey) throws IOException, GeneralSecurityException {
         // Build a new authorized API client service.
         // Print the labels in the user's account.
         String user = "me";
@@ -73,10 +69,9 @@ public final class GmailService extends GoogleService {
 
         List<Message> nbMessageTotal = listMessagesMatchingQuery(user, query, userKey);
 
-        //TODO tag by Djer |Log4J| Contextualise tes messages : nbMessageTotal.size() + " email non lus pour l'utilisateur : " + userKey  
-        LOG.info("affiche le nombre de messages non lu");
-        //TODO tag by Djer |POO| PAS de SysOut sur un serveur !
-        System.out.println("Nombre de messages non lu : " + nbMessageTotal.size());
+        //TODO tag by Djer |Log4J| Contextualise tes messages : nbMessageTotal.size() + " email non lus pour l'utilisateur : " + userKey
+        //CHANGED
+        LOG.info(nbMessageTotal.size() + " email non lus pour l'utilisateur : " + userKey);
         return nbMessageTotal.size();
     }
 
@@ -92,15 +87,17 @@ public final class GmailService extends GoogleService {
     public List<Message> listMessagesMatchingQuery(final String userId, final String query, final String userKey)
             throws IOException, GeneralSecurityException {
         //TODO tag by Djer |Log4J| Une petite log ? "retrieving emais matchin filter : " + query " for user + " userKey + " (GUser : " + userId + ")"
-        ListMessagesResponse response = getService(userKey).users().messages().list(userId).setQ(query).execute();
-
+        //CHANGED
+        ListMessagesResponse response = buildService(userKey).users().messages().list(userId).setQ(query).execute();
+        LOG.info("retrieving emais matchin filter : " + "'" + query + "' for user " +  userKey + " (GUser : " + userId + ")");
+        
         List<Message> messagesId = new ArrayList<Message>();
 
         while (response.getMessages() != null) {
             messagesId.addAll(response.getMessages());
             if (response.getNextPageToken() != null) {
                 String pageToken = response.getNextPageToken();
-                response = getService(userKey).users().messages().list(userId).setQ(query).setPageToken(pageToken)
+                response = buildService(userKey).users().messages().list(userId).setQ(query).setPageToken(pageToken)
                         .execute();
             } else {
                 break;

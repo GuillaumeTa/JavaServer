@@ -18,8 +18,9 @@ import fr.hoc.dap.server.service.GmailService;
 public class MailController {
 
   //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse.
+  //CHANGED
     /**
-     * Singleton.
+     * Injection de dependance.
      */
     @Autowired
     private GmailService gmail;
@@ -33,7 +34,7 @@ public class MailController {
     @RequestMapping("/email/nb")
     public Integer retreiveNbUnreadEmail(@RequestParam() final String userKey)
             throws IOException, GeneralSecurityException {
-        return gmail.getMails(userKey);
+        return gmail.retrieveNbEmails(userKey);
     }
 
 }

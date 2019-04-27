@@ -18,8 +18,6 @@ public abstract class Application {
     @Bean
     public Config conf() {
         Config config = new Config();
-        String appName = "String and Api Google";
-        config.setApplicationName(appName);
         return config;
     }
 
@@ -38,7 +36,8 @@ public abstract class Application {
     public CommandLineRunner commandLineRunner(final ApplicationContext ctx) {
 
         return args -> {
-            //TODO tag by Djer |Spring| Attention tu créé une novuelle "Config" en appelant cette méthode, si cette créer par Spring est mdoifié "ailleur" dans le code tu afficheras une informations FAUSSE !
+            //TODO tag by Djer |Spring| Attention tu créé une nouvelle "Config" en appelant cette méthode, si celle créée par Spring est modifiée "ailleur" dans le code tu afficheras une informations FAUSSE !
+            //CHANGED + question est ce que ça serait pas mieux de le  mettre en log plutot qu'en Sysout
             System.out.println("Application Name : " + conf().getApplicationName());
         };
     }

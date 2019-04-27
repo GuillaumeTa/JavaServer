@@ -24,8 +24,9 @@ import fr.hoc.dap.server.service.AdminService;
 public class AdminController {
 
     //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse. Le "Simgleton" est précisé par celui qui propose la classe à l'IOC (avec le @Service) même si par defaut c'est effectivement un Singleton
+    //CHANGED 
     /**
-     * Singleton.
+     * Injection de dependance.
      */
     @Autowired
     private AdminService admins;
@@ -41,14 +42,15 @@ public class AdminController {
     public String tokenUsers(final ModelMap model) throws GeneralSecurityException, IOException {
 
         //TODO tag by Djer |POO| A priori le nom de cette variable devrait être au pluriel
-        DataStore<StoredCredential> userInfo = admins.getCredential();
+        //CHANGED 
+        DataStore<StoredCredential> usersInfos = admins.getCredential();
 
         Map<String, StoredCredential> usersMap = new HashMap<>();
 
-        Set<String> allKeys = userInfo.keySet();
+        Set<String> allKeys = usersInfos.keySet();
 
         for (String aKey : allKeys) {
-            StoredCredential value = userInfo.get(aKey);
+            StoredCredential value = usersInfos.get(aKey);
             usersMap.put(aKey, value);
         }
 

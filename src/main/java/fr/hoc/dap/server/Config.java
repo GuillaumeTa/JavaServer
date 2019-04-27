@@ -13,7 +13,7 @@ public class Config {
     private static final String CREDENTIAL_FILE_PATH = System.getProperty("user.home") + "/dap/credential_web.json";
 
     /** Nom de l'application.*/
-    private static final String APPLICATION_NAME = "HoC DaP";
+    private static final String APPLICATION_NAME = "HoC DaP Google";
 
     /** tokenFolder variable setter.*/
     private String tokenFolder;
