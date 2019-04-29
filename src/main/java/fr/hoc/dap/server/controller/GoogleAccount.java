@@ -24,12 +24,10 @@ import com.google.api.client.http.GenericUrl;
 
 import fr.hoc.dap.server.service.GoogleService;
 
-//TODO tag by Djer |JavaDoc| Ajoute une description à la classe.
-//CHANGED
 /**
+ * Classe pour associer des utilisateurs à un compte google.
  * @author Alucard
- * CLasse pour associer des utilisateurs à un compte google.
- */
+ *  */
 
 @Controller
 public class GoogleAccount extends GoogleService {
@@ -44,7 +42,7 @@ public class GoogleAccount extends GoogleService {
     /**
      * Add a Google account (user will be prompt to connect and accept required
      * access).
-     * @param userId DaP user login //TODO tag by Djer |JavaDoc| "DaP user login" serait mieux //CHANGED
+     * @param userId DaP user login
      * @param request the HTTP request
      * @param session the HTTP session
      * @return the view to Display (on Error)

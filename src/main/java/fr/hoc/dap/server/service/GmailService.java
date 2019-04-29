@@ -31,6 +31,9 @@ public final class GmailService extends GoogleService {
     //CHANGED on GoogleService
     //TODO tag by Djer |POO| Pas utile car deja défini dans la classe parente !
     //CHANGED
+    /**
+     * Instance of Json.
+     */
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 
     /**
@@ -54,6 +57,7 @@ public final class GmailService extends GoogleService {
     }
 
     /**
+     * renvoi le nombre d'email non lus.
      * @param userKey user actuel.
      * @throws IOException If the credentials.json file cannot be found.
      * @throws GeneralSecurityException if exception exists avoid them.
@@ -69,13 +73,15 @@ public final class GmailService extends GoogleService {
 
         List<Message> nbMessageTotal = listMessagesMatchingQuery(user, query, userKey);
 
-        //TODO tag by Djer |Log4J| Contextualise tes messages : nbMessageTotal.size() + " email non lus pour l'utilisateur : " + userKey
+        //TODO tag by Djer |Log4J| Contextualise tes messages : nbMessageTotal.size() +
+        //" email non lus pour l'utilisateur : " + userKey
         //CHANGED
         LOG.info(nbMessageTotal.size() + " email non lus pour l'utilisateur : " + userKey);
         return nbMessageTotal.size();
     }
 
     /**
+     * renvois la list des messages.
      * @param userId ID de l'utilisateur qui lance l'application.
      * @param query Argument qui défini la recherche.
      * @param userKey user actuel
@@ -86,11 +92,13 @@ public final class GmailService extends GoogleService {
     //TODO tag by Djer |POO| Devrait être privée
     public List<Message> listMessagesMatchingQuery(final String userId, final String query, final String userKey)
             throws IOException, GeneralSecurityException {
-        //TODO tag by Djer |Log4J| Une petite log ? "retrieving emais matchin filter : " + query " for user + " userKey + " (GUser : " + userId + ")"
+        //TODO tag by Djer |Log4J| Une petite log ? "retrieving emais matchin filter : " +
+        //query " for user + " userKey + " (GUser : " + userId + ")"
         //CHANGED
         ListMessagesResponse response = buildService(userKey).users().messages().list(userId).setQ(query).execute();
-        LOG.info("retrieving emais matchin filter : " + "'" + query + "' for user " +  userKey + " (GUser : " + userId + ")");
-        
+        LOG.info("retrieving emais matchin filter : " + "'" + query + "' for user " + userKey + " (GUser : " + userId
+                + ")");
+
         List<Message> messagesId = new ArrayList<Message>();
 
         while (response.getMessages() != null) {

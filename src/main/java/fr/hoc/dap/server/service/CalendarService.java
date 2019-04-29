@@ -25,7 +25,7 @@ public final class CalendarService extends GoogleService {
 
     //TODO tag by Djer |JavaDoc| Pas utile de préciser "constante" on le voit deja grace au "static final"
     //CHANGED
-    /**log (pour log4j)*/
+    /**log (pour log4j).*/
     private static final Logger LOG = LogManager.getLogger();
 
     /**
@@ -34,12 +34,13 @@ public final class CalendarService extends GoogleService {
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 
     /**
-     * //TODO tag by Djer |JavaDoc| Il manque la "description" de la méthode (la première ligne)
+     * //TODO tag by Djer |JavaDoc| Il manque la "description" de la méthode (la première ligne).
      * //CHANGED
      * Methode de recuperation des evenements
      * @throws IOException If the credentials.json file cannot be found.
      * @throws GeneralSecurityException if exception exists avoid them.
-     * @return list of events //TODO tag by Djer |JavaDoc| NE renvoie PAS une liste, mais une "representation textuelle des prochains évènnements"
+     * @return list of events //TODO tag by Djer |JavaDoc| NE renvoie PAS une liste, mais une "representation textuelle
+     * des prochains évènnements"
      * @param nbResult stocke tous les resultats.
      * @param userKey user actuel.
      */
@@ -61,7 +62,7 @@ public final class CalendarService extends GoogleService {
         if (items.isEmpty()) {
             result = "Il n'y a pas d'évenements";
             LOG.warn("Il n'y a pas d'évenements");
-        } else {           
+        } else {
             for (Event event : items) {
                 DateTime start = event.getStart().getDateTime();
                 if (start == null) {

@@ -20,11 +20,9 @@ public class EventController {
     //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse.
     //CHANGED
     /**
-     * Injection de dependance.
+     * Instance of CalendarService.
      */
     @Autowired
-    //TODO tag by Djer |POO| Nom de varaible pas top "calendarSrv" serait mieux
-    //CHANGED
     private CalendarService calendarSrv;
 
     /**

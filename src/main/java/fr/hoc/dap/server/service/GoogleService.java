@@ -31,14 +31,15 @@ import fr.hoc.dap.server.Config;
 
 public class GoogleService {
 
-  //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse.
-  //CHANGED
+    //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse.
+    //CHANGED
     /** Injection de dependance.*/
     @Autowired
     private Config defaultConf;
 
     /**
-     * Permet la création d'une instance Globale du Json ("fabrique" à JSON) et thread-safe (appelable depuis plusieurs thread).
+     * Permet la création d'une instance Globale du Json ("fabrique" à JSON) et thread-safe
+     * (appelable depuis plusieurs thread).
      */
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 
@@ -81,22 +82,22 @@ public class GoogleService {
 
         return flow;
     }
-    
+
     //TODO tag by Djer |JPOO| Les getter/setteer sont en général à la fin de la classe.
     //CHANGED
     //TODO tag by Djer |JavaDoc| Il ne s'agit pas de la "default" conf, mais de la nouvelle conf !
     //CHANGED
-      /**
-       * @param newConf nouvelle configuration.
-       */
-      public void setLaConf(final Config newConf) {
-          this.defaultConf = newConf;
-      }
+    /**
+     * @param newConf nouvelle configuration.
+     */
+    public void setLaConf(final Config newConf) {
+        this.defaultConf = newConf;
+    }
 
-      /**
-       * @return String
-       */
-      public Config getLaConf() {
-          return defaultConf;
-      }
+    /**
+     * @return String
+     */
+    public Config getLaConf() {
+        return defaultConf;
+    }
 }

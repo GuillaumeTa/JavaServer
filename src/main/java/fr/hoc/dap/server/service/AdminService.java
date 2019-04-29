@@ -16,9 +16,9 @@ import com.google.api.client.util.store.DataStore;
 public class AdminService extends GoogleService {
 
     /**
-     * //TODO tag by Djer |JavaDoc| Il manque la "description" de la méthode (la première ligne)
-     * //CHANGED
-     * Methode de recuperation des données
+    * //TODO tag by Djer |JavaDoc| Il manque la "description" de la méthode (la première ligne).
+    * //CHANGED
+    * Methode de recuperation des données
     * @return datas données credential
     * @throws GeneralSecurityException if exception exists avoid them.
     * @throws IOException If the credentials.json file cannot be found.
@@ -31,7 +31,7 @@ public class AdminService extends GoogleService {
     }
 
     /**
-     * //TODO tag by Djer |JavaDoc| Il manque la "description" de la méthode (la première ligne)
+     * //TODO tag by Djer |JavaDoc| Il manque la "description" de la méthode (la première ligne).
      * //CHANGED
      * Methode de suppresion d'un user
      * @param userkey key user actuel.

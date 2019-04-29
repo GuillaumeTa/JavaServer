@@ -23,15 +23,14 @@ import fr.hoc.dap.server.service.AdminService;
 @Controller
 public class AdminController {
 
-    //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse. Le "Simgleton" est précisé par celui qui propose la classe à l'IOC (avec le @Service) même si par defaut c'est effectivement un Singleton
-    //CHANGED 
     /**
-     * Injection de dependance.
+     * The AdminService.
      */
     @Autowired
     private AdminService admins;
 
     /**
+     * Methode de recuperation des tokens des users.
      * @return la vue admin.html
      * @param model le model
      * @throws GeneralSecurityException that provides type safety for all the security-related
@@ -39,10 +38,8 @@ public class AdminController {
      * @throws IOException If the credentials.json file cannot be found.
      */
     @RequestMapping("/admin")
-    public String tokenUsers(final ModelMap model) throws GeneralSecurityException, IOException {
+    public String retrieveUsersTokens(final ModelMap model) throws GeneralSecurityException, IOException {
 
-        //TODO tag by Djer |POO| A priori le nom de cette variable devrait être au pluriel
-        //CHANGED 
         DataStore<StoredCredential> usersInfos = admins.getCredential();
 
         Map<String, StoredCredential> usersMap = new HashMap<>();
@@ -68,7 +65,6 @@ public class AdminController {
      */
     @RequestMapping("/delete/user")
     public String deleteUsr(final String userkey) throws GeneralSecurityException, IOException {
-      //TODO tag by Djer |POO| Comme tu n'as pas besoi nde la valeur de retour il n'est pas utile de la stocké dans une variable local
         DataStore<StoredCredential> deleteUser = admins.deleteUser(userkey);
         return "redirect:/admin";
     }

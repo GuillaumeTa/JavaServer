@@ -17,10 +17,10 @@ import fr.hoc.dap.server.service.GmailService;
 @RestController
 public class MailController {
 
-  //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse.
-  //CHANGED
+    //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse.
+    //CHANGED
     /**
-     * Injection de dependance.
+     * Instance of GmailService.
      */
     @Autowired
     private GmailService gmail;
