@@ -1,8 +1,8 @@
 package fr.hoc.dap.server;
 
 /**
- * @author house
- *
+ * Classe de config pour token et credential.
+ * @author Alucard
  */
 public class Config {
 
@@ -38,44 +38,32 @@ public class Config {
         return tokenFolder;
     }
 
-    /**
-     * @return String
-     */
+    /** @return String*/
     public String getCredentialFilePath() {
         return credentialFilePath;
     }
 
-    /**
-     * @return String
-     */
+    /** @return String*/
     public String getApplicationName() {
         return applicationName;
     }
 
-    /**
-     * @param token2 token folder.
-     */
-    public void setTokenFolder(final String token2) {
-        this.tokenFolder = token2;
+    /** @param newToken token folder*/
+    public void setTokenFolder(final String newToken) {
+        this.tokenFolder = newToken;
     }
 
-    /**
-     * @param credentialFP credential folder.
-     */
-    public void setCredentialFilePath(final String credentialFP) {
-        this.credentialFilePath = credentialFP;
+    /** @param newCredentialFP credential folder*/
+    public void setCredentialFilePath(final String newCredentialFP) {
+        this.credentialFilePath = newCredentialFP;
     }
 
-    /**
-     * @param application2 application name.
-     */
-    public void setApplicationName(final String application2) {
-        this.applicationName = application2;
+    /** @param newApplication application name*/
+    public void setApplicationName(final String newApplication) {
+        this.applicationName = newApplication;
     }
 
-    /**
-     * @return Callback Path.
-     */
+    /** @return Callback Path*/
     public String getoAuth2CallbackUrl() {
         // TODO Auto-generated method stub
         return "/oAuth2Callback";

@@ -10,9 +10,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public abstract class Application {
 
-    /**
-     * @return Config
-     */
+    /** @return Config*/
     @Bean
     public Config conf() {
         Config config = new Config();
@@ -20,9 +18,7 @@ public abstract class Application {
         return config;
     }
 
-    /**
-     * @param args for advanced and customized application.
-     */
+    /** @param args for advanced and customized application.*/
     public static void main(final String[] args) {
         SpringApplication.run(Application.class, args);
     }

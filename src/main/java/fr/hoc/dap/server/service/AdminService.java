@@ -9,16 +9,14 @@ import com.google.api.client.auth.oauth2.StoredCredential;
 import com.google.api.client.util.store.DataStore;
 
 /**
+ * Gère la recup d'user ou leur suppression.
  * @author Alucard
- *
  */
 @Service
 public class AdminService extends GoogleService {
 
     /**
-    * //TODO tag by Djer |JavaDoc| Il manque la "description" de la méthode (la première ligne).
-    * //CHANGED
-    * Methode de recuperation des données
+    * Gère la recuperation des données d'utilisateur.
     * @return datas données credential
     * @throws GeneralSecurityException if exception exists avoid them.
     * @throws IOException If the credentials.json file cannot be found.
@@ -31,9 +29,7 @@ public class AdminService extends GoogleService {
     }
 
     /**
-     * //TODO tag by Djer |JavaDoc| Il manque la "description" de la méthode (la première ligne).
-     * //CHANGED
-     * Methode de suppresion d'un user
+     * Gère la suppresion d'un utilisateur.
      * @param userkey key user actuel.
      * @return datas données credential
      * @throws GeneralSecurityException if exception exists avoid them.

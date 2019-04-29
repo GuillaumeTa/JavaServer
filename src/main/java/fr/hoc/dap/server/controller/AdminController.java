@@ -17,15 +17,13 @@ import com.google.api.client.util.store.DataStore;
 import fr.hoc.dap.server.service.AdminService;
 
 /**
+ * Controller Admin.
  * @author Alucard
- *
  */
 @Controller
 public class AdminController {
 
-    /**
-     * The AdminService.
-     */
+    /** The AdminService.*/
     @Autowired
     private AdminService admins;
 

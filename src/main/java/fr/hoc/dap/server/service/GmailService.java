@@ -18,8 +18,8 @@ import com.google.api.services.gmail.model.ListMessagesResponse;
 import com.google.api.services.gmail.model.Message;
 
 /**
+ * Classe de recuperation des mails.
  * @author house
- *
  */
 @Service
 public final class GmailService extends GoogleService {
@@ -27,13 +27,7 @@ public final class GmailService extends GoogleService {
     /**log (pour log4j).*/
     private static final Logger LOG = LogManager.getLogger();
 
-    //TODO tag by Djer |JavaDoc| NON ! Pas une méthode ! est c'est une "fabrique à JSON" pas vraiment un "JSON"
-    //CHANGED on GoogleService
-    //TODO tag by Djer |POO| Pas utile car deja défini dans la classe parente !
-    //CHANGED
-    /**
-     * Instance of Json.
-     */
+    /**     */
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 
     /**
@@ -42,10 +36,6 @@ public final class GmailService extends GoogleService {
      * @throws IOException If the credentials.json file cannot be found.
      * @throws GeneralSecurityException if exception exists avoid them.
      */
-    //TODO tag by Djer |POO| "buildService" serait mieux comme nom de méthode
-    //CHANGED
-    //TODO tag by Djer |POO| Devrait etre privée
-    //CHANGED
     private Gmail buildService(final String userKey) throws GeneralSecurityException, IOException {
         NetHttpTransport httpTransport;
         Gmail service = null;
@@ -57,7 +47,7 @@ public final class GmailService extends GoogleService {
     }
 
     /**
-     * renvoi le nombre d'email non lus.
+     * renvoie le nombre d'email non lus.
      * @param userKey user actuel.
      * @throws IOException If the credentials.json file cannot be found.
      * @throws GeneralSecurityException if exception exists avoid them.
@@ -81,7 +71,7 @@ public final class GmailService extends GoogleService {
     }
 
     /**
-     * renvois la list des messages.
+     * renvoie la list des messages.
      * @param userId ID de l'utilisateur qui lance l'application.
      * @param query Argument qui défini la recherche.
      * @param userKey user actuel
@@ -89,12 +79,8 @@ public final class GmailService extends GoogleService {
      * @throws IOException If the credentials.json file cannot be found.
      * @throws GeneralSecurityException if exception exists avoid them.
      */
-    //TODO tag by Djer |POO| Devrait être privée
-    public List<Message> listMessagesMatchingQuery(final String userId, final String query, final String userKey)
+    private List<Message> listMessagesMatchingQuery(final String userId, final String query, final String userKey)
             throws IOException, GeneralSecurityException {
-        //TODO tag by Djer |Log4J| Une petite log ? "retrieving emais matchin filter : " +
-        //query " for user + " userKey + " (GUser : " + userId + ")"
-        //CHANGED
         ListMessagesResponse response = buildService(userKey).users().messages().list(userId).setQ(query).execute();
         LOG.info("retrieving emais matchin filter : " + "'" + query + "' for user " + userKey + " (GUser : " + userId
                 + ")");

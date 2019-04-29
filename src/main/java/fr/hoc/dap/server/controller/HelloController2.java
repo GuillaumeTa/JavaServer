@@ -8,8 +8,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
+ * Controller de test html.
  * @author Alucard
- * Controller de test html
  */
 @Controller
 public class HelloController2 {

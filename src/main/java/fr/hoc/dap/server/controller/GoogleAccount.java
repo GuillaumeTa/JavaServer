@@ -27,7 +27,7 @@ import fr.hoc.dap.server.service.GoogleService;
 /**
  * Classe pour associer des utilisateurs à un compte google.
  * @author Alucard
- *  */
+ */
 
 @Controller
 public class GoogleAccount extends GoogleService {
@@ -40,8 +40,7 @@ public class GoogleAccount extends GoogleService {
     private static final int SENSIBLE_DATA_LAST_CHAR = 7;
 
     /**
-     * Add a Google account (user will be prompt to connect and accept required
-     * access).
+     * Add a Google account (user will be prompt to connect and accept required access).
      * @param userId DaP user login
      * @param request the HTTP request
      * @param session the HTTP session

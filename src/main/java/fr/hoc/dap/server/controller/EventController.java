@@ -11,17 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.hoc.dap.server.service.CalendarService;
 
 /**
+ * Controller evenements.
  * @author house
- *
  */
 @RestController
 public class EventController {
 
-    //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse.
-    //CHANGED
-    /**
-     * Instance of CalendarService.
-     */
+    /** The CalendarService.*/
     @Autowired
     private CalendarService calendarSrv;
 

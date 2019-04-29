@@ -11,17 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.hoc.dap.server.service.GmailService;
 
 /**
- * @author house
- *
+ * Controller Mail.
+ * @author Alucard
  */
 @RestController
 public class MailController {
 
-    //TODO tag by Djer |JavaDoc| Documentation pas très utile et potentiellement fausse.
-    //CHANGED
-    /**
-     * Instance of GmailService.
-     */
+    /** The GmailService.*/
     @Autowired
     private GmailService gmail;
 
