@@ -8,4 +8,11 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface DapUserRepository extends CrudRepository<DapUser, Long> {
 
+    /**
+     * Gere le recuperation d'un user par sa userKey.
+     * @param userKey DaP User Key
+     * @return userKey
+     */
+    DapUser findByuserkey(String userKey);
+
 }

@@ -38,9 +38,9 @@ public class DapUser {
         return userkey;
     }
 
-    /** @param newUserkey the userkey to set*/
-    public void setUserkey(final String newUserkey) {
-        this.userkey = newUserkey;
+    /** @param userKey the userkey to set*/
+    public void setUserkey(final String userKey) {
+        this.userkey = userKey;
     }
 
     /** @return the loginName*/
